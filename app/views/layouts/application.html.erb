@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsContacts</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1>eContatos</h1>
+    <h2>Cadastre todos seus esqueminhas aqui!</h2>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/kinds">Tipos de Contato</a></li>
+        <li><a href="/contacts">Contatos</a></li>
+        <li><a href="/phones">Telefones</a></li>
+        <li><a href="/addresses">Endereços</a></li>
+    </ul>
+    <div class="container"> 
+      <%= yield %>
+    </div>
+  </body>
+</html>
