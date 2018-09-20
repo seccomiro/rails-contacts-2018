@@ -1,0 +1,7 @@
+<h1><%= @company.name %></h1>
+<div>
+  <%= @company.active? ? 'ATIVA' : 'DESATIVADA' %>
+</div>
+<div>
+  <%= link_to 'Voltar', companies_path %>
+</div>

@@ -13,11 +13,11 @@
     <h1>eContatos</h1>
     <h2>Cadastre todos seus esqueminhas aqui!</h2>
     <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/kinds">Tipos de Contato</a></li>
-        <li><a href="/contacts">Contatos</a></li>
-        <li><a href="/phones">Telefones</a></li>
-        <li><a href="/addresses">Endereços</a></li>
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'Tipos de Contato', kinds_path %></li>
+      <li><%= link_to 'Contatos', contacts_path %></li>
+      <li><%= link_to 'Telefones', phones_path %></li>
+      <li><%= link_to 'Endereços', addresses_path %></li>
     </ul>
     <div class="container"> 
       <%= yield %>
