@@ -3,5 +3,6 @@
   <%= @company.active? ? 'ATIVA' : 'DESATIVADA' %>
 </div>
 <div>
+  <%= link_to 'Editar', edit_company_path(@company) %>
   <%= link_to 'Voltar', companies_path %>
 </div>
