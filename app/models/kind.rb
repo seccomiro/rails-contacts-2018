@@ -1,5 +1,7 @@
 class Kind < ApplicationRecord
   def to_s
     self.description
-  end 
+  end
+
+  has_many :contacts
 end

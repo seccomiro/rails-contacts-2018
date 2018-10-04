@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   get 'companies', to: 'companies#index'
   get 'companies/new', to: 'companies#new', as: :new_company
   get 'companies/:id', to: 'companies#show', as: :company
