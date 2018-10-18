@@ -1,9 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <%= link_to kinds_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_kind_path(@kind), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show kind</h1>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @kind.description %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Description:</dt>
+  <dd><%= @kind.description %></dd>
 
-<%= link_to 'Edit', edit_kind_path(@kind) %> |
-<%= link_to 'Back', kinds_path %>
+</dl>

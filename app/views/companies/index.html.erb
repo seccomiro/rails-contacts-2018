@@ -1,17 +1,33 @@
-<h1>Empresas</h1>
-
-<div>
-  <%= link_to 'Nova Empresa', new_company_path %>
+<div class="page-header">
+  <h1>Listing companies</h1>
+  <%= link_to new_company_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Company
+  <% end %>
 </div>
 
-<% @companies.each do |company| %>
-  <div>
-    <%= link_to company.name, company %>
-    |
-    <%= company.active? ? 'ATIVA' : 'DESATIVADA' %>
-    |
-    <%= link_to 'Editar', edit_company_path(company) %>
-    |
-    <%= link_to 'Apagar', company, method: :delete, data: {confirm: 'Certeza?'} %>
-  </div>
-<% end %>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th>Active</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @companies.each do |company| %>
+        <tr>
+            <td><%= company.name %></td>
+            <td><%= company.active %></td>
+            <td><%= link_to 'Show', company %></td>
+        <td><%= link_to 'Edit', edit_company_path(company) %></td>
+        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

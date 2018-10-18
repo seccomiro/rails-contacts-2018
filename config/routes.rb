@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
+  resources :companies
+  resources :kinds
   resources :users
-  get 'companies', to: 'companies#index'
-  get 'companies/new', to: 'companies#new', as: :new_company
-  get 'companies/:id', to: 'companies#show', as: :company
-  post 'companies', to: 'companies#create'
-  get 'companies/:id/edit', to: 'companies#edit', as: :edit_company
-  patch 'companies/:id', to: 'companies#update'
-  delete 'companies/:id', to: 'companies#destroy'
 
   # get 'home/index'
   # get 'home/chuchu', to: 'home#index'

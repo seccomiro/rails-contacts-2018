@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>RailsContacts</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,15 +12,36 @@
   </head>
 
   <body>
-    <h1>eContatos</h1>
-    <h2>Cadastre todos seus esqueminhas aqui!</h2>
-    <ul>
-      <li><%= link_to 'Home', root_path %></li>
-      <li><%= link_to 'Tipos de Contato', kinds_path %></li>
-      <li><%= link_to 'Contatos', contacts_path %></li>
-      <li><%= link_to 'Telefones', phones_path %></li>
-      <li><%= link_to 'Endereços', addresses_path %></li>
-    </ul>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= link_to 'Home', root_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Empresas', companies_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Tipos de Contato', kinds_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Contatos', contacts_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Telefones', phones_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Endereços', addresses_path, class: 'nav-link' %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
     <div class="container"> 
       <%= yield %>
     </div>

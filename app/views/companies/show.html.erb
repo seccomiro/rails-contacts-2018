@@ -1,8 +1,20 @@
-<h1><%= @company.name %></h1>
-<div>
-  <%= @company.active? ? 'ATIVA' : 'DESATIVADA' %>
+<div class="page-header">
+  <%= link_to companies_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_company_path(@company), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show company</h1>
 </div>
-<div>
-  <%= link_to 'Editar', edit_company_path(@company) %>
-  <%= link_to 'Voltar', companies_path %>
-</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @company.name %></dd>
+
+  <dt>Active:</dt>
+  <dd><%= @company.active %></dd>
+
+</dl>
