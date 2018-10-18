@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :companies
   resources :kinds
-  resources :users
 
   # get 'home/index'
   # get 'home/chuchu', to: 'home#index'

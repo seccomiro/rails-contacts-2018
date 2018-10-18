@@ -7,7 +7,8 @@ end
 
 puts "Criando 5 Usuários"
 5.times do
-  User.create! name: Faker::FunnyName.unique.name, email: Faker::Internet.unique.email, password: Faker::Color.hex_color
+  password = Faker::Color.hex_color
+  User.create! name: Faker::FunnyName.unique.name, email: Faker::Internet.unique.email, password: password, password_confirmation: password
 end
 
 puts "Criando 10 Empresas"
