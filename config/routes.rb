@@ -13,7 +13,12 @@ Rails.application.routes.draw do
 
   resources :addresses
   resources :phones
-  resources :contacts
+  resources :contacts do
+    collection do
+      get :search
+      get :search_result
+    end
+  end
   resources :kinds, except: [:destroy]
   # resources(:kinds, {:except => [:destroy, :update, :edit]})
 

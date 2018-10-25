@@ -1,10 +1,32 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
+  def search
+    @kinds = Kind.order(:description)
+  end
+
+  def search_result
+    @kinds = Kind.order(:description)
+
+    @search_params = params[:search]
+    kind = Kind.find_by_id @search_params[:kind_id]
+    @contacts = Contact
+                  .includes(:kind, :company)
+                  .where('name like ?', "%#{@search_params[:name]}%")
+                  .order(:name)
+    @contacts = @contacts.where(kind: kind) if kind
+
+    render 'search'
+  end
+
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+    order = params[:order] || 'asc'
+    @new_order = order == 'desc' ? 'asc' : 'desc'
+    @contacts = Contact
+                  .includes(:kind, :company)
+                  .order(name: order)
   end
 
   # GET /contacts/1
@@ -15,7 +37,6 @@ class ContactsController < ApplicationController
   # GET /contacts/new
   def new
     @contact = Contact.new
-    # render 'new'  /views/contacts/new.html.erb
   end
 
   # GET /contacts/1/edit
@@ -70,6 +91,6 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:name, :email, :remark, :kind_id)
+      params.require(:contact).permit(:name, :email, :remark, :kind_id, :company_id)
     end
 end

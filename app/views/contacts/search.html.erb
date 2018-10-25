@@ -1,0 +1,39 @@
+<%= simple_form_for :search, url: search_result_contacts_path, method: :get do |f| %>
+  <%= f.input :name, input_html: { value: @search_params ? @search_params[:name] : '' } %>
+  <%= f.input :kind_id, collection: @kinds, selected: (@search_params[:kind_id] if @search_params), include_blank: true %>
+  <%= f.button :submit, 'Buscar', class: 'btn-primary' %>
+<% end %>
+
+<% if @contacts %>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+              <th><%= link_to 'Name', order: @new_order %></th>
+              <th>Email</th>
+              <th>Remark</th>
+              <th>Kind</th>
+              <th>Company</th>
+              <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @contacts.each do |contact| %>
+          <tr>
+              <td><%= contact.name %></td>
+              <td><%= contact.email %></td>
+              <td><%= contact.remark %></td>
+              <td><%= contact.kind.description %></td>
+              <td><%= contact.company.name %></td>
+              <td><%= link_to 'Show', contact %></td>
+          <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
+          <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
